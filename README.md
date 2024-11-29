@@ -11,9 +11,13 @@ For compilation and running operation I use 4 different .pbs
 The result all printed in the relative .cvs files
 
 Processor: Intel(R) Core(TM) i7-8565U CPU 1.80Hz, 4 cores, 8 logical processors.
+
 RAM: 8GB DDR4.
+
 Operating System: Windows 11
+
 Compiler: GCC 13.2.0, G++ 13.2.0 (MinGW Compiler), GCC 9.1.0 on the cluster.
+
 Libraries: 
 #include <stdio.h>
 #include <stdlib.h>

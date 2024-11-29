@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Job name
+#PBS -N matrix1
+
+# Output files
+#PBS -o ./matrix1.o
+#PBS -e ./matrix1.e
+
+# Queue name
+#PBS -q short_cpuQ
+
+# Set the maximum wall time
+#PBS -l walltime=0:10:00
+
+# Number of nodes, cpus, mpi processors and amount of memory
+#PBS -l select=1:ncpus=4:mem=10mb
+
+# Modules for C
+module load gcc91
+gcc() {
+    gcc-9.1.0 "$@"
+}
+gcc --version
+
+# Select the working directory
+cd /home/dennis.alberti/MatrixTransposition/
+
+# The code should be compiled before submitting the job
+gcc -o MatrixTransposition1 MatrixTransposition.c -O2 -funroll-loops
+gcc -o MatrixTransposition2 MatrixTransposition.c -O2 -funroll-loops
+gcc -o MatrixTransposition3 MatrixTransposition.c -O2 -funroll-loops
+gcc -o MatrixTransposition4 MatrixTransposition.c -O2 -funroll-loops
+gcc -o MatrixTransposition5 MatrixTransposition.c -O2 -funroll-loops
+gcc -o MatrixTransposition6 MatrixTransposition.c -O2 -funroll-loops
+gcc -o MatrixTransposition7 MatrixTransposition.c -O2 -funroll-loops
+gcc -o MatrixTransposition8 MatrixTransposition.c -O2 -funroll-loops
+gcc -o MatrixTransposition9 MatrixTransposition.c -O2 -funroll-loops
+
+
+# Run code
+./MatrixTransposition1 16
+./MatrixTransposition2 32
+./MatrixTransposition3 64
+./MatrixTransposition4 128
+./MatrixTransposition5 256
+./MatrixTransposition6 512
+./MatrixTransposition7 1024
+./MatrixTransposition8 2048
+./MatrixTransposition9 4096
+
+
+
+
+
+
+
+
+
+
+
